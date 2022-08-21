@@ -1,0 +1,35 @@
+server:
+  port: 4080
+
+
+spring:
+  h2:
+    console:
+      enabled: true
+  application:
+    name: MultiTenant
+  datasource:
+    url: jdbc:h2:mem:vw
+    username: sa
+    password: password
+    driver-class-name: org.h2.Driver
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+  main:
+    allow-circular-references: true
+
+tenants:
+  datasources:
+    vw:
+      jdbcUrl: jdbc:h2:mem:vw
+      driverClassName: org.h2.Driver
+      username: sa
+      password: password
+    bmw:
+      jdbcUrl: jdbc:h2:mem:bmw
+      driverClassName: org.h2.Driver
+      username: sa
+      password: password
